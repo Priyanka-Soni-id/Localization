@@ -1,4 +1,8 @@
 pry = require("pry")
+var Git = require('./git')
+
+var git = new Git()
+
 module.exports={
   validate: function(payload){
     var action = payload.action
@@ -6,7 +10,8 @@ module.exports={
     if(action == "closed" && merged == true){
        
     }
-    var files =  payload.pull_request
+    var files =  git.getFileNames(payload.pull_request.merge_commit_sha, payload.repository.full_name)
+    console.log(files)
   },
   mergeEvent: function (req, res) {
     console.log(req.body)
