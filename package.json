@@ -16,5 +16,13 @@
     "url": "https://github.com/Priyanka-Soni-id/Localization/issues"
   },
   "homepage": "https://github.com/Priyanka-Soni-id/Localization#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "4.16.4",
+    "pryjs": "^1.0.3"
+  },
+  "devDependencies": {
+    "pry": "^0.8.7"
+  }
 }

@@ -1,14 +1,17 @@
-const http = require('http');
-
-const hostname = '127.0.0.1';
+pry = require("pry")
+var merge = require('./merge')
+const express = require('express');
+var bodyParser = require('body-parser')
 const port = 3000;
+const hostname= "0.0.0.0"
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World\n');
-});
 
-server.listen(port, hostname, () => {
+const app = express();
+app.use(bodyParser.json())
+
+app.get('/', (req, res)=> res.send("Hello World"));
+app.post('/merge_callback', merge.mergeEvent)
+
+app.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
 });
